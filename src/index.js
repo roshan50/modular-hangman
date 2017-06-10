@@ -1,4 +1,6 @@
 import Message from './modules/Message'
+import Timer from './modules/Timer'
+import Spaces from './modules/Spaces'
 
-
-Message.init(false);
+Timer.init();
+Spaces.init('A');

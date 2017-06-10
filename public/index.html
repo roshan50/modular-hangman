@@ -8,7 +8,7 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-   
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -31,8 +31,8 @@
       <h3 class="text-muted col-md-8">Hanging Man</h3>
 
       <div class="col-md-4 text-right">
-        <button type="button" class="btn btn-success" id="strt" onclick="start()">Start</button>
-        <span id="timer">10:00</span>
+        <button type="button" class="btn btn-success start">Start</button>
+        <span class="timer">10:00</span>
       </div>
 
       <div class="col-md-4 message-div"></div>
@@ -47,45 +47,45 @@
           <div class="panel-body text-center">
 
             <div class="keyboard">
-              <button class="btn btn-default" id="A" onclick="select_char(this)" disabled>A</button>
-              <button class="btn btn-default" id="B" onclick="select_char(this)" disabled>B</button>
-              <button class="btn btn-default" id="C" onclick="select_char(this)" disabled>C</button>
-              <button class="btn btn-default" id="D" onclick="select_char(this)" disabled>D</button>
-              <button class="btn btn-default" id="E" onclick="select_char(this)" disabled>E</button>
-              <button class="btn btn-default" id="F" onclick="select_char(this)" disabled>F</button>
-              <button class="btn btn-default" id="G" onclick="select_char(this)" disabled>G</button>
-              <button class="btn btn-default" id="H" onclick="select_char(this)" disabled>H</button>
-              <button class="btn btn-default" id="I" onclick="select_char(this)" disabled>I</button>
-              <button class="btn btn-default" id="J" onclick="select_char(this)" disabled>J</button>
-              <button class="btn btn-default" id="K" onclick="select_char(this)" disabled>K</button>
-              <button class="btn btn-default" id="L" onclick="select_char(this)" disabled>L</button>
-              <button class="btn btn-default" id="M" onclick="select_char(this)" disabled>M</button>
-              <button class="btn btn-default" id="N" onclick="select_char(this)" disabled>N</button>
-              <button class="btn btn-default" id="O" onclick="select_char(this)" disabled>O</button>
-              <button class="btn btn-default" id="P" onclick="select_char(this)" disabled>P</button>
-              <button class="btn btn-default" id="Q" onclick="select_char(this)" disabled>Q</button>
-              <button class="btn btn-default" id="R" onclick="select_char(this)" disabled>R</button>
-              <button class="btn btn-default" id="S" onclick="select_char(this)" disabled>S</button>
-              <button class="btn btn-default" id="T" onclick="select_char(this)" disabled>T</button>
-              <button class="btn btn-default" id="U" onclick="select_char(this)" disabled>U</button>
-              <button class="btn btn-default" id="V" onclick="select_char(this)" disabled>V</button>
-              <button class="btn btn-default" id="W" onclick="select_char(this)" disabled>W</button>
-              <button class="btn btn-default" id="X" onclick="select_char(this)" disabled>X</button>
-              <button class="btn btn-default" id="Y" onclick="select_char(this)" disabled>Y</button>
-              <button class="btn btn-default" id="Z" onclick="select_char(this)" disabled>Z</button>
+              <button class="btn btn-default" id="A"  disabled>A</button>
+              <button class="btn btn-default" id="B"  disabled>B</button>
+              <button class="btn btn-default" id="C"  disabled>C</button>
+              <button class="btn btn-default" id="D"  disabled>D</button>
+              <button class="btn btn-default" id="E"  disabled>E</button>
+              <button class="btn btn-default" id="F"  disabled>F</button>
+              <button class="btn btn-default" id="G"  disabled>G</button>
+              <button class="btn btn-default" id="H"  disabled>H</button>
+              <button class="btn btn-default" id="I"  disabled>I</button>
+              <button class="btn btn-default" id="J"  disabled>J</button>
+              <button class="btn btn-default" id="K"  disabled>K</button>
+              <button class="btn btn-default" id="L"  disabled>L</button>
+              <button class="btn btn-default" id="M"  disabled>M</button>
+              <button class="btn btn-default" id="N"  disabled>N</button>
+              <button class="btn btn-default" id="O"  disabled>O</button>
+              <button class="btn btn-default" id="P"  disabled>P</button>
+              <button class="btn btn-default" id="Q"  disabled>Q</button>
+              <button class="btn btn-default" id="R"  disabled>R</button>
+              <button class="btn btn-default" id="S"  disabled>S</button>
+              <button class="btn btn-default" id="T"  disabled>T</button>
+              <button class="btn btn-default" id="U"  disabled>U</button>
+              <button class="btn btn-default" id="V"  disabled>V</button>
+              <button class="btn btn-default" id="W"  disabled>W</button>
+              <button class="btn btn-default" id="X"  disabled>X</button>
+              <button class="btn btn-default" id="Y"  disabled>Y</button>
+              <button class="btn btn-default" id="Z"  disabled>Z</button>
             </div>
 
-            <img src="images/hm1.gif" id="image">
+            <img src="images/hm1.gif" class="image">
 
             <br><br>
             <div class="form-group">
               <label>Correct letters:
-                <input type="text" class="form-control answer-field" id="answer" readonly>
+                <input type="text" class="form-control answer-field answer" readonly>
               </label>
             </div>
             <div class="form-group">
               <label>Wrong letters:
-                <input type="text" class="form-control" id="wrong" readonly>
+                <input type="text" class="form-control wrong" readonly>
               </label>
             </div>
           </div>
