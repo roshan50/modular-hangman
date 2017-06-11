@@ -1,4 +1,4 @@
-import Buttons from './modules/Buttons'
+import Game from './modules/Game'
 
-Buttons.init();
+Game.init();
 

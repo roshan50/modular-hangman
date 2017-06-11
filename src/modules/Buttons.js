@@ -1,6 +1,7 @@
 import Spaces from './Spaces'
 import Timer from './Timer'
 import Image from './Image'
+import Game from './Game'
 
 const Buttons = (function(){
 
@@ -69,7 +70,7 @@ const Buttons = (function(){
 
   function selectChar(){
     disableOneChar(this);
-    Spaces.compare(this.id);
+    Game.compare(this.id);
   }
 
 

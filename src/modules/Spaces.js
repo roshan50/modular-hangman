@@ -1,7 +1,3 @@
-import Message from './Message'
-import Image from './Image'
-import Timer from './Timer'
-
 const Spaces = (function(){
 
   let randWord;
@@ -36,49 +32,41 @@ const Spaces = (function(){
     answerElem.value = spaces;
   }
 
-  function compare(char){ 
+  function IsCorrectChar(char){
     let index = randWord.indexOf(char);
-    if(index > -1){ 
-      replaceAllIndexes(char);
-      let not_complete = spaces.includes("_");
-      if(!not_complete){
-        Message.init(true);
-        reset();
-      }
-    }else{
-      wrong++;
-      wrongElem.value += char;
-      Image.init(wrong);
-      if(wrong === 10){
-        Message.init(false);
-        reset();
-      }
+    
+    return index > -1 ? true : false;
+  }
+
+  function putInCorrectSpace(char){
+    let i = randWord.indexOf(char);
+    while (i !== -1){
+      let index = i*2;
+      spaces = spaces.substring(0, index) + char + spaces.substring(index+1);
+      i = randWord.indexOf(char, i+1);
     }
+    answerElem.value = spaces;
+  }
+  
+  function putInWrongSpace(char){
+      wrongElem.value += char;
+      wrong++;
+      return wrong;
   }
 
-  function replaceAllIndexes(char) { 
-      let i = randWord.indexOf(char);
-      while (i !== -1){
-        let index = i*2;
-        spaces = spaces.substring(0, index) + char + spaces.substring(index+1);
-        i = randWord.indexOf(char, i+1);
-      }
-      answerElem.value = spaces;
-  }
-
-  function reset(){
-    Timer.stopTimer();
-    setTimeout(()=>{
-      window.location.reload(true);
-    }, 5000);
-
+  function IsCompleted(argument) {
+      let not_complete = spaces.includes("_");
+      
+      return not_complete ? false : true;
   }
  
 
   return {
     init,
-    compare,
-    reset
+    IsCorrectChar,
+    putInCorrectSpace,
+    putInWrongSpace,
+    IsCompleted
   };
 
 })();
