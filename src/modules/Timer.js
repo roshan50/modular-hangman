@@ -1,4 +1,6 @@
 import Message from './Message'
+import Spaces from './Spaces'
+
 const Timer = (function(){
 
   let timer;
@@ -8,7 +10,7 @@ const Timer = (function(){
   }
 
   function setTimer(){
-    timer = 60*1;
+    timer = 60*10;
     interval = setInterval(countDown,1000);
   }
 
@@ -16,10 +18,9 @@ const Timer = (function(){
     timer--;
     showTime();
     if (timer === 0) {
-      console.log('game over!');
       stopTimer();
       Message.init(false);
-        //  gameOver();
+      Spaces.reset();
     }
   }
 
@@ -39,7 +40,8 @@ const Timer = (function(){
   }
 
   return {
-    init
+    init,
+    stopTimer
   };
 
 })();

@@ -1,20 +1,20 @@
 import Message from './Message'
 import Image from './Image'
+import Timer from './Timer'
+
 const Spaces = (function(){
 
-  let char;
   let randWord;
   let answerElem;
   let wrongElem;
   let spaces;
   let wrong;
 
-  function init(charId){
-    char = charId;
+  function init(){
     wrong = 0;
     cacheDom();
+    chooseWord();
     createCorrectSpaces();
-    // compare();
   }
 
   function cacheDom(){
@@ -22,9 +22,12 @@ const Spaces = (function(){
     wrongElem  = document.querySelector('.wrong');
   }
 
-  function createCorrectSpaces(){
+  function chooseWord(){
     const choices = ["DOG","BOOK","BAG","SHOP","APPLE","HOUSE","LIBRARY","OFFICE"];
     randWord = choices[Math.floor(Math.random() * choices.length)];
+  }
+
+  function createCorrectSpaces(){
     spaces = '';
     for(var i = 0 ; i < randWord.length ; i++){
       spaces +='_,';
@@ -33,14 +36,14 @@ const Spaces = (function(){
     answerElem.value = spaces;
   }
 
-  function compare(){
+  function compare(char){ 
     let index = randWord.indexOf(char);
-    if(index > -1){
-      replaceAllIndexes();
+    if(index > -1){ 
+      replaceAllIndexes(char);
       let not_complete = spaces.includes("_");
       if(!not_complete){
         Message.init(true);
-        // reset();
+        reset();
       }
     }else{
       wrong++;
@@ -48,38 +51,34 @@ const Spaces = (function(){
       Image.init(wrong);
       if(wrong === 10){
         Message.init(false);
+        reset();
       }
     }
   }
 
-  function replaceAllIndexes() {
-      let i = -1;
-      let ind = randWord.indexOf(char, i+1)
-      while (ind !== -1){
-          let index = i*2;
-          spaces = spaces.substring(0, index) + char + spaces.substring(index+1);
+  function replaceAllIndexes(char) { 
+      let i = randWord.indexOf(char);
+      while (i !== -1){
+        let index = i*2;
+        spaces = spaces.substring(0, index) + char + spaces.substring(index+1);
+        i = randWord.indexOf(char, i+1);
       }
       answerElem.value = spaces;
   }
 
-  // function putInCorrectSpace(){
-  //
-  // }
-  //
-  // function putInWrongSpace(){
-  //
-  // }
-  //
-  // function ClearCorrectSpaces(){
-  //
-  // }
-  //
-  // function ClearWrongSpaces(){
-  //
-  // }
+  function reset(){
+    Timer.stopTimer();
+    setTimeout(()=>{
+      window.location.reload(true);
+    }, 5000);
+
+  }
+ 
 
   return {
-    init
+    init,
+    compare,
+    reset
   };
 
 })();

@@ -4,98 +4,83 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
-    <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-    -->
 
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <title>Hanging Man</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css"> 
+  </head>
+  
+  <body>
+    <div class="container">
+      <div class="header row">
+        <h3 class="text-muted col-md-8">Hanging Man</h3>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+        <div class="col-md-4 text-right">
+          <button type="button" class="btn btn-success start">Start</button>
+          <span class="timer">10:00</span>
+        </div>
 
-  <meta charset="utf-8">
-  <title>Hanging Man</title>
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-
-</head>
-<body>
-  <div class="container">
-    <div class="header row">
-      <h3 class="text-muted col-md-8">Hanging Man</h3>
-
-      <div class="col-md-4 text-right">
-        <button type="button" class="btn btn-success start">Start</button>
-        <span class="timer">10:00</span>
+        <div class="col-md-4 message-div"></div>
       </div>
 
-      <div class="col-md-4 message-div"></div>
-    </div>
-
-    <main class="row content">
-      <div class="col-md-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Help this man to guss the correct word:</h3>
-          </div>
-          <div class="panel-body text-center">
-
-            <div class="keyboard">
-              <button class="btn btn-default" id="A"  disabled>A</button>
-              <button class="btn btn-default" id="B"  disabled>B</button>
-              <button class="btn btn-default" id="C"  disabled>C</button>
-              <button class="btn btn-default" id="D"  disabled>D</button>
-              <button class="btn btn-default" id="E"  disabled>E</button>
-              <button class="btn btn-default" id="F"  disabled>F</button>
-              <button class="btn btn-default" id="G"  disabled>G</button>
-              <button class="btn btn-default" id="H"  disabled>H</button>
-              <button class="btn btn-default" id="I"  disabled>I</button>
-              <button class="btn btn-default" id="J"  disabled>J</button>
-              <button class="btn btn-default" id="K"  disabled>K</button>
-              <button class="btn btn-default" id="L"  disabled>L</button>
-              <button class="btn btn-default" id="M"  disabled>M</button>
-              <button class="btn btn-default" id="N"  disabled>N</button>
-              <button class="btn btn-default" id="O"  disabled>O</button>
-              <button class="btn btn-default" id="P"  disabled>P</button>
-              <button class="btn btn-default" id="Q"  disabled>Q</button>
-              <button class="btn btn-default" id="R"  disabled>R</button>
-              <button class="btn btn-default" id="S"  disabled>S</button>
-              <button class="btn btn-default" id="T"  disabled>T</button>
-              <button class="btn btn-default" id="U"  disabled>U</button>
-              <button class="btn btn-default" id="V"  disabled>V</button>
-              <button class="btn btn-default" id="W"  disabled>W</button>
-              <button class="btn btn-default" id="X"  disabled>X</button>
-              <button class="btn btn-default" id="Y"  disabled>Y</button>
-              <button class="btn btn-default" id="Z"  disabled>Z</button>
+      <main class="row content">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Help this man to guss the correct word:</h3>
             </div>
+            <div class="panel-body text-center">
 
-            <img src="images/hm1.gif" class="image">
+              <div class="keyboard">
+                <button class="btn btn-default" id="A"  disabled>A</button>
+                <button class="btn btn-default" id="B"  disabled>B</button>
+                <button class="btn btn-default" id="C"  disabled>C</button>
+                <button class="btn btn-default" id="D"  disabled>D</button>
+                <button class="btn btn-default" id="E"  disabled>E</button>
+                <button class="btn btn-default" id="F"  disabled>F</button>
+                <button class="btn btn-default" id="G"  disabled>G</button>
+                <button class="btn btn-default" id="H"  disabled>H</button>
+                <button class="btn btn-default" id="I"  disabled>I</button>
+                <button class="btn btn-default" id="J"  disabled>J</button>
+                <button class="btn btn-default" id="K"  disabled>K</button>
+                <button class="btn btn-default" id="L"  disabled>L</button>
+                <button class="btn btn-default" id="M"  disabled>M</button>
+                <button class="btn btn-default" id="N"  disabled>N</button>
+                <button class="btn btn-default" id="O"  disabled>O</button>
+                <button class="btn btn-default" id="P"  disabled>P</button>
+                <button class="btn btn-default" id="Q"  disabled>Q</button>
+                <button class="btn btn-default" id="R"  disabled>R</button>
+                <button class="btn btn-default" id="S"  disabled>S</button>
+                <button class="btn btn-default" id="T"  disabled>T</button>
+                <button class="btn btn-default" id="U"  disabled>U</button>
+                <button class="btn btn-default" id="V"  disabled>V</button>
+                <button class="btn btn-default" id="W"  disabled>W</button>
+                <button class="btn btn-default" id="X"  disabled>X</button>
+                <button class="btn btn-default" id="Y"  disabled>Y</button>
+                <button class="btn btn-default" id="Z"  disabled>Z</button>
+              </div>
 
-            <br><br>
-            <div class="form-group">
-              <label>Correct letters:
-                <input type="text" class="form-control answer-field answer" readonly>
-              </label>
-            </div>
-            <div class="form-group">
-              <label>Wrong letters:
-                <input type="text" class="form-control wrong" readonly>
-              </label>
+              <img src="images/hm1.gif" class="image">
+
+              <br><br>
+              <div class="form-group">
+                <label>Correct letters:
+                  <input type="text" class="form-control answer-field answer" readonly>
+                </label>
+              </div>
+              <div class="form-group">
+                <label>Wrong letters:
+                  <input type="text" class="form-control wrong" readonly>
+                </label>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
 
-    <footer class="footer">
-      <p>&copy; 2016 Company, Inc.</p>
-    </footer>
-  </div>
-</body>
+      <footer class="footer">
+        <p>&copy; 2016 Company, Inc.</p>
+      </footer>
+    </div>
+  </body>
 </html>

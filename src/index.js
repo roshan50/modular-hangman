@@ -1,6 +1,4 @@
-import Message from './modules/Message'
-import Timer from './modules/Timer'
-import Spaces from './modules/Spaces'
+import Buttons from './modules/Buttons'
 
-Timer.init();
-Spaces.init('A');
+Buttons.init();
+

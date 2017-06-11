@@ -1,16 +1,22 @@
-const Buttons = (function(){}
+import Spaces from './Spaces'
+import Timer from './Timer'
+import Image from './Image'
+
+const Buttons = (function(){
 
   let startBtn;
   let charBtns;
   let charBtn;
 
   function init(){
-
+    cacheDom(); 
+    enableStart();
+    addEventListener(startBtn,start);
   }
 
   function cacheDom(){
-    startBtn = document.querySelector("start");
-    charBtn = document.querySelector(".btn-default");
+    startBtn = document.querySelector(".start");
+    // charBtn = document.querySelector(".btn-default");
     charBtns = document.querySelectorAll(".btn-default");
   }
 
@@ -34,20 +40,36 @@ const Buttons = (function(){}
     }
   }
 
-  function disableOneChar() {
-    charBtn.disabled = true;
+  function disableOneChar(btn) {
+    btn.disabled = true;
   }
 
-  function enableOneChar(){
-    charBtn.disabled = false;
+  function enableOneChar(btn){
+    btn.disabled = false;
   }
 
-  function addEventListener(){
-
+  function addEventListener(btn,btnFunc){
+    btn.addEventListener("click", btnFunc);
   }
 
-  function removeEventListner() {
+  function removeEventListner(btn,btnFunc) {
+    btn.removeEventListener("click", btnFunc);
+  }
 
+  function start(){
+    Timer.init();
+    disableStart();
+    enableAllChars();
+    Image.init(1);
+    for(var i = 0; i < charBtns.length; i++){
+      charBtns[i].addEventListener("click",selectChar);
+    }
+    Spaces.init();
+  }
+
+  function selectChar(){
+    disableOneChar(this);
+    Spaces.compare(this.id);
   }
 
 
